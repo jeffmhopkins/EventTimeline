@@ -4,7 +4,7 @@ This is the production build of the Event Timeline application, configured for G
 
 ## Build Details
 
-- **Version**: 1.0.5
+- **Version**: 1.0.5 
 - **Base Path**: `/EventTimeline/`
 - **Build Date**: June 2, 2025
 - **Build Size**: ~525KB total
