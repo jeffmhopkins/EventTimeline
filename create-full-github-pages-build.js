@@ -59,12 +59,16 @@ try {
   fs.writeFileSync(path.join('dist', '.nojekyll'), '');
   console.log('Created .nojekyll file');
   
-  // Update service worker if it exists
-  const swPath = path.join('dist', 'sw.js');
-  if (fs.existsSync(swPath)) {
-    let swContent = fs.readFileSync(swPath, 'utf-8');
+  // Copy and update service worker for GitHub Pages
+  const githubSw = 'client/sw.github-pages.js';
+  const distSwPath = path.join('dist', 'sw.js');
+  if (fs.existsSync(githubSw)) {
+    fs.copyFileSync(githubSw, distSwPath);
+    console.log('Copied GitHub Pages service worker');
+  } else if (fs.existsSync(distSwPath)) {
+    let swContent = fs.readFileSync(distSwPath, 'utf-8');
     
-    // Update cache URLs
+    // Update cache URLs for GitHub Pages
     swContent = swContent.replace(
       /const urlsToCache = \[([\s\S]*?)\]/,
       (match, urls) => {
@@ -73,8 +77,16 @@ try {
       }
     );
     
-    fs.writeFileSync(swPath, swContent);
+    fs.writeFileSync(distSwPath, swContent);
     console.log('Updated service worker paths');
+  }
+  
+  // Copy GitHub Pages manifest
+  const githubManifest = 'client/manifest.github-pages.json';
+  const distManifestPath = path.join('dist', 'manifest.json');
+  if (fs.existsSync(githubManifest)) {
+    fs.copyFileSync(githubManifest, distManifestPath);
+    console.log('Copied GitHub Pages manifest');
   }
   
   // Create deployment instructions
