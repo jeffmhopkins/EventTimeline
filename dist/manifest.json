@@ -11,19 +11,19 @@
   "categories": ["productivity", "utilities"],
   "icons": [
     {
-      "src": "/EventTimeline/assets/icon.svg",
+      "src": "/EventTimeline/assets/icon-B3AMIJtx.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/EventTimeline/assets/icon.svg",
+      "src": "/EventTimeline/assets/icon-B3AMIJtx.svg",
       "sizes": "192x192",
       "type": "image/svg+xml",
       "purpose": "maskable"
     },
     {
-      "src": "/EventTimeline/assets/icon.svg",
+      "src": "/EventTimeline/assets/icon-B3AMIJtx.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "maskable"
